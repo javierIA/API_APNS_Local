@@ -1,0 +1,205 @@
+{
+    "info": {
+        "_postman_id": "a725e8b0-6a40-4a7a-a2b5-9ac71b2c14d3",
+        "name": "Vapor App - User and Log Routes",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "User Routes",
+            "item": [
+                {
+                    "name": "Create User",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/users",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["users"]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"example_username\",\n    \"role\": \"example_role\",\n    \"password\": \"example_password\",\n    \"description\": \"example_description\",\n    \"email\": \"example@example.com\",\n    \"phone\": \"1234567890\",\n    \"verified\": true,\n    \"verificationToken\": \"example_verification_token\",\n    \"resetToken\": \"example_reset_token\",\n    \"resetTokenExpiration\": \"2023-05-05T00:00:00Z\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/users",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["users"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get User by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/users/:id",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["users", ":id"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update User",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/users/:id",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["users", ":id"]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"updated_username\",\n    \"role\": \"updated_role\",\n    \"password\": \"updated_password\",\n    \"description\": \"updated_description\",\n    \"email\": \"updated@example.com\",\n    \"phone\": \"0987654321\",\n    \"verified\": false,\n    \"verificationToken\": \"updated_verification_token\",\n    \"resetToken\": \"updated_reset_token\",\n    \"resetTokenExpiration\": \"2023-05-05T00:00:00Z\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete User",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/users/:id",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["users", ":id"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Log Routes",
+            "item": [
+                {
+                    "name": "Create Log",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/logs",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["logs"]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"message\": \"example_message\",\n    \"level\": \"example_level\",\n    \"metadata\": \"example_metadata\",\n    \"createdAt\": \"2023-05-05T00:00:00Z\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Logs",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/logs",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["logs"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Log by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/logs/:id",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["logs", ":id"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Log",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/logs/:id",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["logs", ":id"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Log",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://0.0.0.0:8080/logs/:id",
+                            "protocol": "http",
+                            "host": ["your_host"],
+                            "port": "your_port",
+                            "path": ["logs", ":id"]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"message\": \"updated_message\",\n    \"level\": \"updated_level\",\n    \"metadata\": \"updated_metadata\",\n    \"createdAt\": \"2023-05-05T00:00:00Z\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

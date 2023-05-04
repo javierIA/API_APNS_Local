@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Debug App",
+            "program": "${workspaceFolder:template-fluent-postgres}/.build/debug/App",
+            "args": [],
+            "cwd": "${workspaceFolder:template-fluent-postgres}",
+            "preLaunchTask": "swift: Build Debug App"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Release App",
+            "program": "${workspaceFolder:template-fluent-postgres}/.build/release/App",
+            "args": [],
+            "cwd": "${workspaceFolder:template-fluent-postgres}",
+            "preLaunchTask": "swift: Build Release App"
+        }
+    ]
+}
