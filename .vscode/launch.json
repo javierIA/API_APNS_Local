@@ -7,9 +7,9 @@
                 "swift"
             ],
             "name": "Debug App",
-            "program": "${workspaceFolder:template-fluent-postgres}/.build/debug/App",
+            "program": "${workspaceFolder:API_APNS_Local}/.build/debug/App",
             "args": [],
-            "cwd": "${workspaceFolder:template-fluent-postgres}",
+            "cwd": "${workspaceFolder:API_APNS_Local}",
             "preLaunchTask": "swift: Build Debug App"
         },
         {
@@ -19,9 +19,9 @@
                 "swift"
             ],
             "name": "Release App",
-            "program": "${workspaceFolder:template-fluent-postgres}/.build/release/App",
+            "program": "${workspaceFolder:API_APNS_Local}/.build/release/App",
             "args": [],
-            "cwd": "${workspaceFolder:template-fluent-postgres}",
+            "cwd": "${workspaceFolder:API_APNS_Local}",
             "preLaunchTask": "swift: Build Release App"
         }
     ]

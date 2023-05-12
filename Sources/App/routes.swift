@@ -9,7 +9,8 @@ func routes(_ app: Application) throws {
     app.get("hello") { req async -> String in
         "Hello, world!"
     }
-
+    app.passwords.use(.bcrypt(cost: 8))
+    
     try app.register(collection: UserController())
     try app.register(collection: LogController())
 }

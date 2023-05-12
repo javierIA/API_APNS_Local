@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-final class User: Model, Content {
+final class User: Model, Content, Authenticatable {
     static let schema = "users"
 
     @ID(key: .id)
@@ -40,6 +40,8 @@ final class User: Model, Content {
     @Field(key: "reset_token_expiration")
     var resetTokenExpiration: Date
 
+    // Agregar la relación con UserToken
+  
     init() {
         // Required by Fluent
     }

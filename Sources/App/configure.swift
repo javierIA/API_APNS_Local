@@ -1,24 +1,31 @@
 import Fluent
-import FluentPostgresDriver
 import Vapor
+import JWTKit
+import FluentPostgresDriver
 
-// configures your application
-public func configure(_ app: Application) async throws {
-    // uncomment to serve files from /Public folder
-    // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
-
+public func configure(_ app: Application) throws {
+    // Configurar el proveedor de Fluent y la base de datos
     app.databases.use(.postgres(
-        hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-        port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? PostgresConfiguration.ianaPortNumber,
-        username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
-        password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
-        database: Environment.get("DATABASE_NAME") ?? "vapor_database"
+        hostname:"localhost",
+        port: 5432,
+        username:  "vapor_username",
+        password:  "vapor_password",
+        database: "vapor_database"
     ), as: .psql)
 
+    
     app.migrations.add(CreateUser())
     app.migrations.add(CreateLogs())
-    try await app.autoMigrate().get()
-
-    // register routes
+    
+    // Configurar el autenticador JWT
+    let privateKey = try String(contentsOfFile: "Keys/private_key.pem")
+    let jwtSigner = try JWTSigner.rs256(key: .private(pem: [UInt8](privateKey.data(using: .utf8)!)))
+    app.jwt.signers.use(jwtSigner)
+    
+    // Configurar el middleware para el autenticador JWT
+    app.middleware.use(UserAuthMiddleware())
+    // Ejecutar las migraciones
+    try app.autoMigrate().wait()
+    // Configurar las rutas
     try routes(app)
 }
